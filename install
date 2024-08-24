@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 
-pip install .
+pip install . --break-system-packages
 # cp config/wp-reaction.conf /etc/systemd/
 # cp config/wp-reaction.service /etc/systemd/system/
