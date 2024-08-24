@@ -30,10 +30,10 @@ def main():
     if(config['log_coordinates']['enabled'] == 'True'):
         log_coordinates_thread = Thread(target = log_coordinates, args = [
             config['log_coordinates']['file'],
-            int(config['log_coordinates']['north_limit']),
-            int(config['log_coordinates']['south_limit']),
-            int(config['log_coordinates']['east_limit']),
-            int(config['log_coordinates']['west_limit'])
+            float(config['log_coordinates']['north_limit']),
+            float(config['log_coordinates']['south_limit']),
+            float(config['log_coordinates']['east_limit']),
+            float(config['log_coordinates']['west_limit'])
         ])
 
     threads = ['login_failures_thread', 'nginx_logs_thread', 'log_coordinates_thread']
