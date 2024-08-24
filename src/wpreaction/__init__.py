@@ -37,8 +37,8 @@ def main():
 
     threads = ['login_failures_thread', 'nginx_logs_thread', 'log_coordinates_thread']
     for(thread in threads):
-        if(thread in locals()):
-            thread.run()
+        if(thread_instance in locals()):
+            thread_instance.run()
 
     
 if __name__ == '__main__': main()
