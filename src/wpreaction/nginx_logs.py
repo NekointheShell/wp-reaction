@@ -1,4 +1,4 @@
-import logging
+import logging, time
 from ipwhois.ipwhois import IPWhois
 from .ban_ip import ban_ip
 
@@ -22,5 +22,7 @@ def nginx_logs(file, ban_cloud_providers, ban_xmlrpc_users, ban_rest_route_users
                 name = lookup['nets'][0]['name'].lower()
 
                 if('digitalocean' in name or 'amazon' in name or 'microsoft' in name or 'dreamhost' in name or 'linode' in name or 'ovh' in name): ban_ip(toban)
+
+        time.sleep(1)
 
     file.close()
