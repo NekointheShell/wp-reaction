@@ -4,6 +4,7 @@ from .ban_ip import ban_ip
 
 def login_failures(filename):
     log = logging.getLogger(__name__)
+    log.info('Starting login_failures filter...')
     file = open(filename, 'r')
 
     while(True):

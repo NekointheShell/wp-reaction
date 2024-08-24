@@ -4,6 +4,7 @@ from geoip import geolite2
 
 def log_coordinates(filename, north_limit, south_limit, east_limit, west_limit):
     log = logging.getLogger(__name__)
+    log.info('Starting log coordinates filter...')
     file = open(filename, 'r')
 
     while(True):

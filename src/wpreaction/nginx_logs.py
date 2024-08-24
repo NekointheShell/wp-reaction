@@ -5,6 +5,7 @@ from .ban_ip import ban_ip
 
 def nginx_logs(file, ban_cloud_providers, ban_xmlrpc_users, ban_rest_route_users):
     log = logging.getLogger(__name__)
+    log.info('Starting nginx logs filter...')
     file = open(filename, 'r')
 
     while(True):
