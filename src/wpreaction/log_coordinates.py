@@ -30,9 +30,9 @@ def log_coordinates(filename, north_limit, south_limit, east_limit, west_limit):
                 coordinates = lookup.location
 
                 if(len(coordinates) == 2):
-                    log.debug('{} has coordinates {}'.format(ip, coordinates))
-                    if(coordinates[0] <= north_limit and coordinates[0] >= south_limit and coordinates[1] >= east_limit and coordinates[1] <= west_limit):
-                        log.info('IP from coordinate limit: {}'.format(ip))
+                    log.debug('log_coordinates: {} has coordinates {}'.format(ip, coordinates))
+                    if(coordinates[0] <= north_limit and coordinates[0] >= south_limit and coordinates[1] <= east_limit and coordinates[1] >= west_limit):
+                        log.info('log_coordinates: IP from coordinate limit: {}'.format(ip))
 
         time.sleep(0.1)
 
