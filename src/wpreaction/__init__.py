@@ -2,9 +2,9 @@ import logging, configparser
 from systemd import journal
 from threading import Thread
 
-from login_failures import login_failures
-from nginx_logs import nginx_logs
-from log_coordinates import log_coordinates
+from .login_failures import login_failures
+from .nginx_logs import nginx_logs
+from .log_coordinates import log_coordinates
 
 
 log = logging.getLogger(__name__)
