@@ -26,7 +26,7 @@ def log_coordinates(filename, north_limit, south_limit, east_limit, west_limit):
                 continue
 
             lookup = geolite2.lookup(ip)
-            if(lookup != None):
+            if(lookup != None and location in lookup):
                 coordinates = lookup.location
 
                 if(len(coordinates) == 2):
