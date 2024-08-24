@@ -11,7 +11,7 @@ def login_failures(filename):
         line = file.readline()
         if(line != '' and line != "\n"):
             toban = line.split(', ')[0].split(': ')[1]
-            ban_ip(toban)
+            ban_ip('login_failures', toban)
 
         time.sleep(1)
 

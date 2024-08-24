@@ -4,7 +4,7 @@ import logging, ipaddress, subprocess
 log = logging.getLogger(__name__)
 
 
-def ban_ip(ip):
+def ban_ip(filter, ip):
     log = logging.getLogger(__name__)
 
     try:
@@ -14,7 +14,7 @@ def ban_ip(ip):
         log.error('{} is not a valid IP! This could be a command injection attempt!')
         return False
 
-    log.info('Banning {}'.format(ip))
+    log.info('{} banning {}'.format(filter, ip))
     iptables80 = subprocess.run('iptables -A INPUT -p tcp --dport 80 -s {} -j DROP'.format(ip).split())
     iptables443 = subprocess.run('iptables -A INPUT -p tcp --dport 443 -s {} -j DROP'.format(ip).split())
 
