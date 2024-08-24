@@ -14,6 +14,7 @@ def nginx_logs(filename, ban_cloud_providers, ban_xmlrpc_users, ban_rest_route_u
             linearray = line.split()
             toban = linearray[0]
             path = linearray[6]
+            if(toban == '127.0.0.1'): continue
 
             if(ban_xmlrpc_users == 'True' and 'xmlrpc.php' in path): ban_ip(toban)
             if(ban_rest_route_users == 'True' and 'rest_route' in path): ban_ip(toban)
