@@ -1,4 +1,4 @@
-import logging
+import logging, time
 from ipwhois.ipwhois import IPWhois
 from .ban_ip import ban_ip
 
@@ -35,5 +35,7 @@ def nginx_logs(filename, ban_cloud_providers, ban_xmlrpc_users, ban_rest_route_u
 
                 except Error as e:
                     log.error(e)
+
+        time.sleep(0.1)
 
     file.close()
