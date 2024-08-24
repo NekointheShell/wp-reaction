@@ -14,10 +14,10 @@ def nginx_logs(file, ban_cloud_providers, ban_xmlrpc_users, ban_rest_route_users
             toban = linearray[0]
             path = linearray[6]
 
-            if(ban_xmlrpc_users and 'xmlrpc.php' in path): ban_ip(toban)
-            if(ban_rest_route_users and 'rest_route' in path): ban_ip(toban)
+            if(ban_xmlrpc_users == 'True' and 'xmlrpc.php' in path): ban_ip(toban)
+            if(ban_rest_route_users == 'True' and 'rest_route' in path): ban_ip(toban)
 
-            if(ban_cloud_providers):
+            if(ban_cloud_providers == 'True'):
                 lookup = IPWhois(toban).ip_lookup()
                 name = lookup['nets'][0]['name'].lower()
 
