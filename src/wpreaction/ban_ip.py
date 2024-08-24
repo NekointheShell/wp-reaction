@@ -8,7 +8,7 @@ def ban_ip(ip):
     log = logging.getLogger(__name__)
 
     try:
-        ipaddress.ip_address(str(ip)
+        ipaddress.ip_address(str(ip))
 
     except ValueError:
         log.error('{} is not a valid IP! This could be a command injection attempt!')
