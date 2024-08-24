@@ -2,7 +2,7 @@
 
 
 pip install . --break-system-packages
-cp config/wp-reaction.conf /etc/systemd/
+if [ ! -f /etc/systemd/wp-reaction.conf ]; then cp config/wp-reaction.conf /etc/systemd/; fi
 cp config/wp-reaction.service /etc/systemd/system/
 
 systemctl enable wp-reaction
