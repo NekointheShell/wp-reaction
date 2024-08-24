@@ -1,4 +1,4 @@
-import logging, time, ipaddress
+import logging, ipaddress
 from geoip import geolite2
 
 
@@ -24,7 +24,5 @@ def log_coordinates(filename, north_limit, south_limit, east_limit, west_limit):
 
             if(coordinates[0] <= north_limit and coordinates[0] >= south_limit and coordinates[1] >= east_limit and coordinates[1] <= west_limit):
                 log.info('IP from coordinate limit: {}'.format(ip))
-
-        time.sleep(1)
 
     file.close()

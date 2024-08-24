@@ -1,4 +1,4 @@
-import logging, time
+import logging
 from ipwhois.ipwhois import IPWhois
 from .ban_ip import ban_ip
 
@@ -16,19 +16,24 @@ def nginx_logs(filename, ban_cloud_providers, ban_xmlrpc_users, ban_rest_route_u
             path = linearray[6]
             if(toban == '127.0.0.1'): continue
 
-            if(ban_xmlrpc_users == 'True' and 'xmlrpc.php' in path): ban_ip('nginx_logs xmlrpc', toban)
-            if(ban_rest_route_users == 'True' and 'rest_route' in path): ban_ip('nginx_logs rest_route', toban)
+            if(ban_xmlrpc_users == 'True' and 'xmlrpc.php' in path):
+                ban_ip('nginx_logs xmlrpc', toban)
+                continue
+
+            if(ban_rest_route_users == 'True' and 'rest_route' in path):
+                ban_ip('nginx_logs rest_route', toban)
+                continue
 
             if(ban_cloud_providers == 'True'):
                 try:
                     lookup = IPWhois(toban).lookup_whois()
                     name = lookup['nets'][0]['name'].lower()
 
-                    if('digitalocean' in name or 'amazon' in name or 'microsoft' in name or 'dreamhost' in name or 'linode' in name or 'ovh' in name): ban_ip('nginx_logs cloud provider', toban)
+                    if('digitalocean' in name or 'amazon' in name or 'microsoft' in name or 'dreamhost' in name or 'linode' in name or 'ovh' in name):
+                        ban_ip('nginx_logs cloud provider', toban)
+                        continue
 
                 except Error as e:
                     log.error(e)
-
-        time.sleep(1)
 
     file.close()

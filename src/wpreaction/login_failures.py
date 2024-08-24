@@ -1,4 +1,4 @@
-import logging, time
+import logging
 from .ban_ip import ban_ip
 
 
@@ -12,7 +12,5 @@ def login_failures(filename):
         if(line != '' and line != "\n"):
             toban = line.split(', ')[0].split(': ')[1]
             ban_ip('login_failures', toban)
-
-        time.sleep(1)
 
     file.close()
