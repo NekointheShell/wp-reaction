@@ -27,11 +27,12 @@ def nginx_logs(filename, ban_cloud_providers, ban_xmlrpc_users, ban_rest_route_u
             if(ban_cloud_providers == 'True'):
                 try:
                     lookup = IPWhois(toban).lookup_whois()
-                    name = lookup['nets'][0]['name'].lower()
+                    if(lookup != None and 'nets' in lookup and 'name' in lookup['nets'][0]):
+                        name = lookup['nets'][0]['name'].lower()
 
-                    if('digitalocean' in name or 'amazon' in name or 'microsoft' in name or 'dreamhost' in name or 'linode' in name or 'ovh' in name):
-                        ban_ip('nginx_logs cloud provider', toban)
-                        continue
+                        if('digitalocean' in name or 'amazon' in name or 'microsoft' in name or 'dreamhost' in name or 'linode' in name or 'ovh' in name):
+                            ban_ip('nginx_logs cloud provider', toban)
+                            continue
 
                 except Exception as e:
                     log.error(e)
