@@ -18,7 +18,6 @@ def log_coordinates(filename, north_limit, south_limit, east_limit, west_limit):
             log.error('{} is not a valid IP!'.format(ip))
             continue
 
-        log.info('Looking up {}'.format(ip))
         lookup = geolite2.lookup(ip)
         if(lookup != None):
             coordinates = lookup.location
