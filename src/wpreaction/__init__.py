@@ -14,7 +14,7 @@ log.setLevel(logging.INFO)
 
 def main():
     config = configparser.ConfigParser()
-    config.read('/etc/systemd/reaction.conf')
+    config.read('/etc/systemd/wp-reaction.conf')
 
     if(config['login_failures']['enabled'] == 'True'):
         login_failures_thread = Thread(target = login_failures, args = [config['login_failures']['file']])
