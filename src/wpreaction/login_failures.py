@@ -1,5 +1,5 @@
 import logging
-from ban_ip import ban_ip
+from .ban_ip import ban_ip
 
 
 def login_failures(filename):
