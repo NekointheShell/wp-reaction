@@ -19,10 +19,12 @@ def log_coordinates(filename, north_limit, south_limit, east_limit, west_limit):
             continue
 
         log.info('Looking up {}'.format(ip))
-        coordinates = geolite2.lookup(ip).location
+        lookup = geolite2.lookup(ip)
+        if(lookup != None):
+            coordinates = lookup.location
 
-        if(coordinates[0] <= north_limit and coordinates[0] >= south_limit and coordinates[1] >= east_limit and coordinates[1] <= west_limit):
-            log.info('IP from coordinate limit: {}'.format(ip))
+            if(coordinates[0] <= north_limit and coordinates[0] >= south_limit and coordinates[1] >= east_limit and coordinates[1] <= west_limit):
+                log.info('IP from coordinate limit: {}'.format(ip))
 
         time.sleep(1)
 
