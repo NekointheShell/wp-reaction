@@ -2,5 +2,5 @@
 
 
 pip install . --break-system-packages
-# cp config/wp-reaction.conf /etc/systemd/
-# cp config/wp-reaction.service /etc/systemd/system/
+cp config/wp-reaction.conf /etc/systemd/
+cp config/wp-reaction.service /etc/systemd/system/
