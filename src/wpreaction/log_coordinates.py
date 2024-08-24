@@ -7,6 +7,11 @@ def log_coordinates(filename, north_limit, south_limit, east_limit, west_limit):
     log.info('Starting log coordinates filter...')
     file = open(filename, 'r')
 
+    log.debug('log_coordinates north limit: {}'.format(north_limit))
+    log.debug('log_coordinates south limit: {}'.format(south_limit))
+    log.debug('log_coordinates east limit: {}'.format(east_limit))
+    log.debug('log_coordinates west limit: {}'.format(west_limit))
+
     while(True):
         line = file.readline()
         if(line != '' and line != "\n"):
