@@ -15,7 +15,7 @@ def ban_ip(ip):
         return False
 
     log.info('Banning {}'.format(ip))
-    iptables = subprocess.run('iptables -A INPUT -p tcp --dports 80,443 -s {} -j DROP'.format(ip).split())
+    iptables = subprocess.run('iptables -A INPUT -p tcp --dport 80,443 -s {} -j DROP'.format(ip).split())
 
     if(iptables.returncode != 0):
         log.error('Unable to ban {}!'.format(ip))
