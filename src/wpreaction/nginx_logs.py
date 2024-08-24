@@ -33,7 +33,7 @@ def nginx_logs(filename, ban_cloud_providers, ban_xmlrpc_users, ban_rest_route_u
                         ban_ip('nginx_logs cloud provider', toban)
                         continue
 
-                except Error as e:
+                except Exception as e:
                     log.error(e)
 
         time.sleep(0.1)
