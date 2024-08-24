@@ -20,7 +20,7 @@ def nginx_logs(filename, ban_cloud_providers, ban_xmlrpc_users, ban_rest_route_u
             if(ban_rest_route_users == 'True' and 'rest_route' in path): ban_ip(toban)
 
             if(ban_cloud_providers == 'True'):
-                lookup = IPWhois(toban).whois_lookup()
+                lookup = IPWhois(toban).lookup_whois()
                 name = lookup['nets'][0]['name'].lower()
 
                 if('digitalocean' in name or 'amazon' in name or 'microsoft' in name or 'dreamhost' in name or 'linode' in name or 'ovh' in name): ban_ip(toban)
